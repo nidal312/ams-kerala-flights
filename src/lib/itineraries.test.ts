@@ -43,6 +43,12 @@ test("every itinerary price is the sum of attached ticket prices", () => {
   }
 })
 
+test("default maxStops does not drop snapshot itineraries that already match", () => {
+  const open = filterAndRank(DEFAULT_FILTERS, "cheapest", 0.5)
+  const unlimited = filterAndRank({ ...DEFAULT_FILTERS, maxStops: 99 }, "cheapest", 0.5)
+  expect(open.length).toBe(unlimited.length)
+})
+
 test("30 kg confirmed filter drops Etihad Value-style fares", () => {
   const open = filterAndRank({ ...DEFAULT_FILTERS, kg30ConfirmedOnly: false }, "cheapest", 0.5)
   const strict = filterAndRank({ ...DEFAULT_FILTERS, kg30ConfirmedOnly: true }, "cheapest", 0.5)

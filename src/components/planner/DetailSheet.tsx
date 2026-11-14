@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 import {
   Sheet,
@@ -44,7 +45,7 @@ export function DetailSheet({
               <Timeline itinerary={itinerary} />
 
               <section className="flex flex-col gap-2">
-                <h3 className="font-heading text-base">Tickets</h3>
+                <h3 className="text-base font-semibold">Tickets</h3>
                 {itinerary.tickets.map((ticket, index) => (
                   <div key={ticket.fare.id} className="rounded-xl border bg-muted/40 p-3">
                     <p className="text-xs tracking-wide text-muted-foreground uppercase">
@@ -85,7 +86,7 @@ export function DetailSheet({
               </section>
 
               <section className="flex flex-col gap-2">
-                <h3 className="font-heading text-base">Segments</h3>
+                <h3 className="text-base font-semibold">Segments</h3>
                 <ol className="flex flex-col gap-2">
                   {itinerary.segments.map((segment, index) => (
                     <li key={`${segment.from}-${segment.depart.time}-${index}`} className="text-sm">
@@ -101,7 +102,7 @@ export function DetailSheet({
 
               {itinerary.selfTransfer && (
                 <section className="flex flex-col gap-2 rounded-xl border border-dashed p-3">
-                  <h3 className="font-heading text-base">Self-transfer</h3>
+                  <h3 className="text-base font-semibold">Self-transfer</h3>
                   <p className="text-sm">
                     {layoverRiskLabel(itinerary.selfTransfer.risk)} ·{" "}
                     {formatDuration(itinerary.selfTransfer.durationMin)} at{" "}
@@ -127,11 +128,17 @@ export function DetailSheet({
               <Separator />
 
               <section className="flex flex-col gap-2">
-                <h3 className="font-heading text-base">Search on Google Flights</h3>
+                <h3 className="text-base font-semibold">Search on Google Flights</h3>
                 {itinerary.googleUrls.map((link) => (
-                  <Button key={link.href} variant="outline" render={<a href={link.href} target="_blank" rel="noreferrer" />}>
+                  <a
+                    key={link.href}
+                    className={cn(buttonVariants({ variant: "outline" }), "justify-start")}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {link.label}
-                  </Button>
+                  </a>
                 ))}
               </section>
             </div>

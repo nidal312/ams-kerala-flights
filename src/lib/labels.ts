@@ -10,7 +10,7 @@ export function destFull(code: "CNN" | "CCJ"): string {
 }
 
 export function kindLabel(kind: Itinerary["kind"]): string {
-  return kind === "one-ticket" ? "One ticket" : "Split tickets"
+  return kind === "one-ticket" ? "One ticket" : "Self-transfer"
 }
 
 export function layoverRiskLabel(risk: LayoverRisk): string {

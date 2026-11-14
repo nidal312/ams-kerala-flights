@@ -285,6 +285,7 @@ export interface Filters {
   ticketKind: "both" | "one-ticket" | "split"
   hub: "all" | GulfHub | "other"
   maxLayoverHours: number
+  maxStops: number
   kg30ConfirmedOnly: boolean
   excludeImpossible: boolean
 }
@@ -295,8 +296,13 @@ export const DEFAULT_FILTERS: Filters = {
   ticketKind: "both",
   hub: "all",
   maxLayoverHours: 24,
+  maxStops: 8,
   kg30ConfirmedOnly: false,
   excludeImpossible: true,
+}
+
+export function stopCount(it: Itinerary): number {
+  return Math.max(0, it.segments.length - 1)
 }
 
 export function hubOf(it: Itinerary): "AUH" | "DXB" | "other" {
@@ -314,6 +320,7 @@ export function matchesFilters(it: Itinerary, filters: Filters): boolean {
   if (it.selfTransfer && it.selfTransfer.durationMin > filters.maxLayoverHours * 60) {
     return false
   }
+  if (stopCount(it) > filters.maxStops) return false
   if (filters.excludeImpossible && !canCarry30kg(it.baggage)) return false
   if (filters.kg30ConfirmedOnly && !is30kgConfirmed(it.baggage)) return false
   return true

@@ -35,7 +35,7 @@ export function PriceMatrix({
         <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
           Date × destination
         </p>
-        <h2 id="matrix-title" className="font-heading text-2xl">
+        <h2 id="matrix-title" className="text-2xl font-semibold">
           Cheapest fare heatmap
         </h2>
         <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
@@ -43,7 +43,7 @@ export function PriceMatrix({
           cell. DXB→CNN on 11 Dec is not retrieved.
         </p>
       </div>
-      <div className="overflow-x-auto rounded-2xl border bg-card/70">
+      <div className="overflow-x-auto rounded-2xl border bg-card shadow-sm">
         <table className="w-full min-w-[40rem] border-collapse text-sm">
           <caption className="sr-only">
             Cheapest one-way fare from Amsterdam by date and Kerala airport
