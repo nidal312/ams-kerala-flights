@@ -5,6 +5,7 @@ import { defineConfig } from "vitest/config"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/ams-kerala-flights/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

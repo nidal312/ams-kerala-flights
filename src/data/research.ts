@@ -1,12 +1,13 @@
 import type { BaggageStatus } from "./types"
 
 export const TRAVELER = {
-  passport: "Indian",
-  livesIn: "Netherlands",
-  visas: ["UAE visa (valid — check entries and remaining validity)", "Schengen visa"],
   bags: "Must carry 30 kg checked luggage",
   window: "Depart Amsterdam 7–11 Dec 2026, one adult, economy",
   destNote: "Kannur (CNN) or Kozhikode / Calicut (CCJ), Kerala",
+  visas: [
+    "Self-transfer in Abu Dhabi or Dubai requires a valid UAE visa",
+    "Indian passports need a visa to enter Turkey (airside one-PNR transit is different)",
+  ],
 } as const
 
 export const SELF_TRANSFER = {
@@ -19,11 +20,11 @@ export const SELF_TRANSFER = {
 } as const
 
 export const TURKEY_TRANSIT = {
-  note: "Indian passport needs a visa to enter Turkey. Airside same-airport transit on one Pegasus or AJet ticket: no visa requirement found. Keep both Turkey legs on one PNR. Do not self-transfer in Istanbul.",
+  note: "Indian passports need a visa to enter Turkey. Airside same-airport transit on one Pegasus or AJet ticket: no visa requirement found. Keep both Turkey legs on one PNR. Do not self-transfer in Istanbul.",
 } as const
 
 export const UAE_ENTRY = {
-  note: "Traveler holds a UAE visa, so landside self-transfer (immigration + bag recheck) is possible. Confirm the visa is still valid, has unused entries, and that the passport has 6 months validity.",
+  note: "Landside self-transfer in Abu Dhabi or Dubai requires a valid UAE visa (immigration, bag collect and recheck). Confirm remaining validity, unused entries, and six months on the passport.",
 } as const
 
 export interface CarrierBaggageRule {

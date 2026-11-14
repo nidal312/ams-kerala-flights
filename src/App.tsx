@@ -98,16 +98,15 @@ export function App() {
               One real trip, ranked for price and time.
             </h2>
             <p className="mt-4 max-w-xl text-base text-muted-foreground">
-              Amsterdam to Kannur or Kozhikode. Indian passport, UAE and Schengen visas in hand,
-              living in the Netherlands. Options that cannot carry 30 kg checked luggage are
-              dropped from the ranking. Self-transfer in Abu Dhabi or Dubai is allowed only with
-              at least four hours on the ground.
+              Amsterdam to Kannur or Kozhikode. One adult, economy, 30 kg checked bag. Options that
+              cannot carry 30 kg are dropped from the ranking. Self-transfer in Abu Dhabi or Dubai
+              requires a valid UAE visa and at least four hours on the ground.
             </p>
           </div>
           <Alert>
             <AlertTitle>Snapshot, not a live search</AlertTitle>
             <AlertDescription>
-              {SOURCE_NOTE} {TRAVELER.bags}. {TRAVELER.visas.join(" · ")}.
+              {SOURCE_NOTE} {TRAVELER.bags}. Self-transfer requires a valid UAE visa.
             </AlertDescription>
           </Alert>
         </section>

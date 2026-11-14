@@ -50,6 +50,10 @@ Timezone used for layover math (Google times are local):
 | AUH / DXB    | UTC+4    |
 | India (CNN, CCJ) | UTC+5:30 |
 
-## Traveler assumptions
+## Assumptions
 
-Indian passport, lives in the Netherlands, holds a UAE visa and a Schengen visa. Self-transfer in the UAE means immigration + bag recheck and **no misconnect protection**. Turkey: keep Pegasus/AJet legs on one PNR; Indian passports need a visa to enter Turkey.
+Self-transfer in Abu Dhabi or Dubai requires a **valid UAE visa** (immigration + bag recheck) and has **no misconnect protection**. Turkey: keep Pegasus/AJet legs on one PNR; Indian passports need a visa to enter Turkey.
+
+## GitHub Pages
+
+Production builds use `base: /ams-kerala-flights/`. After pushing to `nidal312/ams-kerala-flights` with Pages source = GitHub Actions, the site is at https://nidal312.github.io/ams-kerala-flights/.
